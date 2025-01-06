@@ -1,5 +1,7 @@
 import React from 'react'
 import Image from 'next/image';
+import '../app/styles/card.css';
+
 // import { DiVim } from 'react-icons/di';
 
 interface propsType {
@@ -10,9 +12,9 @@ interface propsType {
 }
 const Card:React.FC <propsType> = ({title , desc , img , tags}) => {
   return (
-    <div className='border border-accent w-[300px] sm:w-[350px]' data-aos="zoom-in-up">
+    <div className={`card ${window.innerWidth >= 640 ? 'card-sm' : ''}`} data-aos="zoom-in-up">
        <div>
-        <Image className='w-[300px] sm:w-[350px] h-auto'
+        <Image className={`card-image ${window.innerWidth >= 640? 'card-image-sm' : ''}`}
         src ={img}
         width ={350}
         height={350}
@@ -20,12 +22,12 @@ const Card:React.FC <propsType> = ({title , desc , img , tags}) => {
         />
        </div>
 
-       <div className='p-4 space-y-4'>
-          <div className='text-4xl font-extralight'> {title} </div>
+       <div className="card-content">
+          <div className="card-title"> {title} </div>
           <div>{desc}</div>
           <div>
             {tags.map((el) => (
-              <div className='tags' key={el}>
+              <div className="card-tags" key={el}>
                 {el}
               </div>))} 
           </div>
@@ -34,4 +36,4 @@ const Card:React.FC <propsType> = ({title , desc , img , tags}) => {
   )
 }
 
-export default Card
+export default Card;

@@ -1,47 +1,48 @@
 import React from 'react'
 import { IoMdMail } from "react-icons/io";
 import { FaPhoneAlt } from "react-icons/fa";
+import '../app/styles/contact.css';
 
 const Contact = () => {
   return (
-    <div id='contact' className='pt-32 container'>
+    <div id='contact' className='contact-container'>
       <div className='grid md:grid-cols-2 gap-10'>
-        <div className='space-y-8'>
-            <h2 className='text-5xl' data-aos="zoom-in-up">Get in touch</h2>
-            <p className='text-gray-600 text-[18px] pt-2' data-aos="zoom-in-up">
+        <div className='contact-space'>
+            <h2 className='contact-heading'>Get in touch</h2>
+            <p className='contact-text'>
                 Drop me a line, give me a call, or send me a message by submitting the form 
             </p>
-            <div className='flex gap-3 items-center'data-aos="zoom-in-up">
+            <div className='contact-flex'>
                 <IoMdMail size={30}/> shahzaibkaimkhani2003@gmail.com
             </div>
-            <div className='flex gap-3 items-center'data-aos="zoom-in-up">
+            <div className='contact-flex'>
                 <FaPhoneAlt size={30}/> (+92) 3323819058
             </div>
         </div>
-        <div className='space-y-8'>
-            <div className='flex flex-col gap-1'data-aos="zoom-in-up">
+        <div className='contact-space'>
+            <div className='form'>
                 <label htmlFor="name">Name</label>
                 <input type="text" 
-                className='h-40px bg-transparent border border-accent'
+                className='input-field'
                 id='name'
                 />
             </div>
-            <div className='flex flex-col gap-1'data-aos="zoom-in-up">
+            <div className='form'>
                 <label htmlFor="email">Email</label>
                 <input type="text" 
-                className='h-40px bg-transparent border border-accent'
+                className='input-field'
                 id='email'
                 />
             </div>
-            <div className='flex flex-col gap-1'data-aos="zoom-in-up">
+            <div className='form'>
                 <label htmlFor="msg">Message</label>
-                <textarea id="msg" rows={8} className='h-40px bg-transparent border border-accent'></textarea>
+                <textarea id="msg" rows={8} className='textarea-field'></textarea>
             </div>
-            <button className='bg-accent p-2 px-6'data-aos="zoom-in-up">Send</button>
+            <button className='button'>Send</button>
         </div>
       </div>
     </div>
   )
 }
 
-export default Contact
+export default Contact;

@@ -1,6 +1,7 @@
 import React from 'react'
 import { AiOutlineMenu,AiOutlineClose} from "react-icons/ai";
 import { useState } from 'react';
+import '../app/styles/navbar.css';
 
 const Navbar = () => {
   const[isMenuOpen , setisMenuOpen] = useState(false)
@@ -9,37 +10,39 @@ const Navbar = () => {
     setisMenuOpen(!isMenuOpen )
   }
   return (
-    <div className='container pt-8'>
-      <div className='flex justify-between items-center'>
-        <div className='text-xl font-medium'>SK</div>
-      <ul className='gap-10 lg:gap-16 hidden md:flex'>
-        <li className='menuLink'><a href="#home">Home</a></li>
-        <li className='menuLink'><a href="#about">About</a></li>
-        <li className='menuLink'><a href="#projects">Projects</a></li>
-        <li className='menuLink'><a href="#skills">Skills</a></li>
-        <li className='menuLink'><a href="#contact">Contact</a></li>
+    <div className='navbar-container'>
+      <div className='navbar'>
+        <div className='navbar-brand'>SK</div>
+
+      {/* large screen navbar links */}
+      <ul className={`navbar-links ${isMenuOpen ? 'open' : ''}`}>
+        <li className='navbar-link'><a href="#hero">Home</a></li>
+        <li className='navbar-link'><a href="#about">About</a></li>
+        <li className='navbar-link'><a href="#projects">Projects</a></li>
+        <li className='navbar-link'><a href="#skills">Skills</a></li>
+        <li className='navbar-link'><a href="#contact">Contact</a></li>
       </ul>
-      <div className='md:hidden' onClick={toggleMenu}>
+      <div className='navbar-menu-icon' onClick={toggleMenu}>
         {isMenuOpen? <AiOutlineClose size={30} />:
         <AiOutlineMenu size={30}/>
         }
       </div>
     </div>
     {isMenuOpen && (
-      <ul className='flex flex-col gap-4 mt-4 md:hidden'>
-        <li className='menuLink'>
+      <ul className={`navbar-menu ${isMenuOpen ? 'open' : ''}`}>
+        <li className='navbar-link'>
           <a href="#hero" onClick={toggleMenu}>Home</a>
         </li>
-        <li className='menuLink'>
+        <li className='navbar-link'>
           <a href="#about" onClick={toggleMenu}>About</a>
         </li>
-        <li className='menuLink'>
+        <li className='navbar-link'>
           <a href="#projects" onClick={toggleMenu}>Projects</a>
         </li>
-        <li className='menuLink'>
+        <li className='navbar-link'>
           <a href="#skills" onClick={toggleMenu}>Skills</a>
         </li>
-        <li className='menuLink'>
+        <li className='navbar-link'>
           <a href="#contact" onClick={toggleMenu}>Contact</a>
         </li>
       </ul>
@@ -48,4 +51,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;
